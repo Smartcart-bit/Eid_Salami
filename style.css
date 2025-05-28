@@ -1,48 +1,54 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fef9f3;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-}
-.container {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 450px;
+  font-family: Arial, sans-serif;
   text-align: center;
+  background: #f0f8ff;
+  padding: 20px;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-input {
-  margin: 10px 0;
-  padding: 12px;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+
+.container {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-button {
-  background: #28a745;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.quote {
-  margin-top: 20px;
-  font-style: italic;
-  color: #555;
-}
-.credit {
+
+footer {
   position: fixed;
   bottom: 10px;
-  right: 15px;
-  font-size: 12px;
-  color: #aaa;
+  right: 10px;
+  font-size: 0.7em;
+  color: #555;
+}
+
+#animation {
+  margin-top: 20px;
+}
+
+/* Simple confetti animation styles */
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #ff6f61;
+  opacity: 0.8;
+  animation: fall 3s linear infinite;
+  border-radius: 2px;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px) rotate(360deg);
+    opacity: 0;
+  }
 }
