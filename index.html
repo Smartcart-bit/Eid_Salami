@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Send Eid Salami</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Eid Salami Received!</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .confetti {
+      animation: pop 0.6s ease-out infinite alternate;
+    }
+    @keyframes pop {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.2) rotate(5deg); }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>🎉 Virtual Eid Salami 🎉</h1>
-    <input type="text" id="sender" placeholder="Your Name" />
-    <input type="text" id="receiver" placeholder="Friend's Name" />
-    <input type="number" id="amount" placeholder="Amount (Tk)" />
-    <button onclick="generateSalami()">Send Salami</button>
-    
-    <div id="result" style="display: none;">
-      <p id="salami-message"></p>
-      <p id="quote" class="quote"></p>
-      <a id="whatsapp" target="_blank">📱 Share on WhatsApp</a>
-      <a id="messenger" target="_blank">💬 Share on Messenger</a>
-    </div>
+    <h1 class="confetti">🌙 Eid Salami Received! 🎉</h1>
+    <p id="message" style="font-size: 18px;"></p>
+    <p id="quote" class="quote"></p>
   </div>
   <p class="credit">Mohammad Ullah, RUET EEE</p>
-  <script src="script.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const from = urlParams.get("from");
+    const to = urlParams.get("to");
+    const amount = urlParams.get("amount");
+
+    const quotes = [
+      "May this Eid bring peace, prosperity and joy to your life!",
+      "Wishing you smiles, laughter, and lots of salami!",
+      "The joy of Eid is multiplied when shared with love.",
+      "This Eid, may your heart be as light as your wallet 😉",
+      "A little joy goes a long way. Happy Eid!",
+      "Celebrate with a smile, and spread the cheer!"
+    ];
+
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+    document.getElementById("message").innerText = `${to}, you’ve received Tk ${amount} Eid Salami from ${from}! 🎁`;
+    document.getElementById("quote").innerText = `"${randomQuote}"`;
+  </script>
 </body>
 </html>
-
