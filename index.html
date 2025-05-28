@@ -1,6 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Send Eid Salami</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎁 Virtual Eid Salami</h1>
+    <input type="text" id="sender" placeholder="Your Name" />
+    <input type="text" id="receiver" placeholder="Friend's Name" />
+    <input type="number" id="amount" placeholder="Amount (Tk)" />
+    <button onclick="generateLink()">Generate Salami Link</button>
+    
+    <div id="link-section" style="display: none;">
+      <p>Share this link with your friend:</p>
+      <input type="text" id="generatedLink" readonly />
+    </div>
+  </div>
+  <p class="credit">Mohammad Ullah, RUET EEE</p>
+  <script>
+    function generateLink() {
+      const sender = document.getElementById("sender").value.trim();
+      const receiver = document.getElementById("receiver").value.trim();
+      const amount = document.getElementById("amount").value.trim();
+
+      if (!sender || !receiver || !amount) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const baseURL = window.location.href.replace("index.html", "");
+      const url = `${baseURL}salami.html?from=${encodeURIComponent(sender)}&to=${encodeURIComponent(receiver)}&amount=${amount}`;
+
+      document.getElementById("generatedLink").value = url;
+      document.getElementById("link-section").style.display = "block";
+    }
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <title>Eid Salami Received!</title>
   <link rel="stylesheet" href="style.css">
